@@ -1,8 +1,15 @@
+FROM maven:3-jdk-8 AS MAVEN_TOOL_CHAIN
+COPY pom.xml /tmp/
+COPY src /tmp/src/
+WORKDIR /tmp/
+RUN mvn package
+
 FROM jboss/wildfly:latest
+COPY --from=MAVEN_TOOL_CHAIN /tmp/target/KubernetesWildfly.war /opt/jboss/wildfly/standalone/deployments/
+ADD target/KubernetesWildfly.war /opt/jboss/wildfly/standalone/deployments/
 
 ADD https://downloads.mariadb.com/Connectors/java/connector-java-1.5.9/mariadb-java-client-1.5.9.jar /opt/jboss/wildfly/modules/system/layers/base/org/mariadb/jdbc/main/
 COPY librairies/module.xml /opt/jboss/wildfly/modules/system/layers/base/org/mariadb/jdbc/main/
-ADD target/KubernetesWildfly.war /opt/jboss/wildfly/standalone/deployments/
 
 RUN /opt/jboss/wildfly/bin/add-user.sh admin Admin#123 --silent
 

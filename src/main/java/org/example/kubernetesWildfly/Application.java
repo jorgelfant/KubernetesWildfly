@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet({"/org/example/kubernetesWildfly"})
+@WebServlet({"application"})
 public class Application extends HttpServlet {
 
     private static final long serialVersionUID = 8532332299687592651L;
