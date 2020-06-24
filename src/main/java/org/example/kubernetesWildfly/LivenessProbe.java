@@ -1,4 +1,4 @@
-package application;
+package org.example.kubernetesWildfly;
 
 import java.io.IOException;
 import java.io.PrintWriter;

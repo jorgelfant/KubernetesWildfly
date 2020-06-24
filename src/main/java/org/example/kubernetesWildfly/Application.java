@@ -1,4 +1,4 @@
-package application;
+package org.example.kubernetesWildfly;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,24 +14,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet({ "/application" })
+@WebServlet({"/org/example/kubernetesWildfly"})
 public class Application extends HttpServlet {
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 8532332299687592651L;
+    private static final long serialVersionUID = 8532332299687592651L;
 
-	@Override
+    @Override
     protected void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Sortie GET avec BD");
         final PrintWriter writer = response.getWriter();
         writer.println("Sortie GET avec BD");
-        try{
+        try {
             final Connection connection = this.connectDatabase();
             final Statement stmt = connection.createStatement();
             final ResultSet resultSet = stmt.executeQuery("SELECT * FROM Personnes");
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 writer.println("PersonneID: " + resultSet.getInt("PersonneID"));
                 writer.println("Prénom: " + resultSet.getString("Prénom"));
                 writer.println("Nom1: " + resultSet.getString("Nom1"));
@@ -43,12 +40,11 @@ public class Application extends HttpServlet {
             stmt.close();
             connection.close();
 
-        }catch(final ClassNotFoundException e){
+        } catch (final ClassNotFoundException e) {
             e.printStackTrace(writer);
-        }catch(final SQLException e){
+        } catch (final SQLException e) {
             e.printStackTrace(writer);
         }
-
         writer.flush();
     }
 
