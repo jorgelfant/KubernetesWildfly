@@ -1,4 +1,4 @@
-package com.example.kubernetesWildfly.aplicacion;
+package com.example.kubernetesWildfly.application;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,35 +14,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet({ "/aplicacion" })
-public class Aplicacion extends HttpServlet {
+@WebServlet({"/application"})
+public class Aplication extends HttpServlet {
 
-	private static final long serialVersionUID = 8532332299687592651L;
+    private static final long serialVersionUID = 8532332299687592651L;
 
-	@Override
+    @Override
     protected void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Salida GET con BD");
+        System.out.println("Cortie GET avec BD");
         final PrintWriter writer = response.getWriter();
-        writer.println("Salida GET con BD");
-        try{
+        writer.println("Sortie GET avec BD");
+        try {
             final Connection connection = this.connectDatabase();
             final Statement stmt = connection.createStatement();
-            final ResultSet resultSet = stmt.executeQuery("SELECT * FROM Personas");
-            while(resultSet.next()){
-                writer.println("PersonaID: " + resultSet.getInt("PersonaID"));
-                writer.println("Nombre: " + resultSet.getString("Nombre"));
-                writer.println("Apellido1: " + resultSet.getString("Apellido1"));
-                writer.println("Apellido2: " + resultSet.getString("Apellido2"));
-                writer.println("Direccion: " + resultSet.getString("Direccion"));
-                writer.println("Poblacion: " + resultSet.getString("Poblacion"));
+            final ResultSet resultSet = stmt.executeQuery("SELECT * FROM Personnes");
+            while (resultSet.next()) {
+                writer.println("PersonneID: " + resultSet.getInt("PersonneID"));
+                writer.println("Prenom: " + resultSet.getString("Prenom"));
+                writer.println("Nom1: " + resultSet.getString("Nom1"));
+                writer.println("Nom2: " + resultSet.getString("Nom2"));
+                writer.println("Adresse: " + resultSet.getString("Adresse"));
+                writer.println("Population: " + resultSet.getString("Population"));
                 writer.println("-------------------------------------------------");
             }
             stmt.close();
             connection.close();
 
-        }catch(final ClassNotFoundException e){
+        } catch (final ClassNotFoundException e) {
             e.printStackTrace(writer);
-        }catch(final SQLException e){
+        } catch (final SQLException e) {
             e.printStackTrace(writer);
         }
 
@@ -51,8 +51,8 @@ public class Aplicacion extends HttpServlet {
 
     @Override
     protected void doPost(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Salida POST");
-        response.getWriter().println("Salida POST");
+        System.out.println("Sortie POST");
+        response.getWriter().println("Sortie POST");
         response.getWriter().flush();
 
     }

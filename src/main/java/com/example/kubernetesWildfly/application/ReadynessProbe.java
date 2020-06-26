@@ -1,4 +1,4 @@
-package com.example.kubernetesWildfly.aplicacion;
+package com.example.kubernetesWildfly.application;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,7 +32,7 @@ public class ReadynessProbe extends HttpServlet {
         try {
             final Connection connection = this.connectDatabase();
             final Statement stmt = connection.createStatement();
-            final ResultSet resultSet = stmt.executeQuery("SELECT * FROM Personas");
+            final ResultSet resultSet = stmt.executeQuery("SELECT * FROM Personnes");
             if (resultSet.next()) {
                 System.out.println("OK");
                 writer.println("OK");
@@ -42,10 +42,10 @@ public class ReadynessProbe extends HttpServlet {
 
         } catch (final ClassNotFoundException e) {
             response.sendError(500);
-            System.out.println("No OK");
+            System.out.println("Non OK");
         } catch (final SQLException e) {
             response.sendError(500);
-            System.out.println("No OK");
+            System.out.println("Non OK");
         }
 
         writer.flush();

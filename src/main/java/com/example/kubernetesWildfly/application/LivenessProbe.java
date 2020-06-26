@@ -1,4 +1,4 @@
-package com.example.kubernetesWildfly.aplicacion;
+package com.example.kubernetesWildfly.application;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,17 +19,17 @@ public class LivenessProbe extends HttpServlet {
      */
     private static final long serialVersionUID = 8532332299687592651L;
 
-    private static final Date inicio = new Date();
+    private static final Date demmarrage = new Date();
 
-    private static final long espera = 5 * 60 * 1000;
+    private static final long attente = 5 * 60 * 1000;
 
     @Override
     protected void doGet(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
         final PrintWriter writer = response.getWriter();
 
-        Date ahora = new Date();
-        if (inicio.getTime() + espera > ahora.getTime()){
+        Date maintenant = new Date();
+        if (demmarrage.getTime() + attente > maintenant.getTime()){
             writer.println("OK");
         }else{
             response.sendError(500);
