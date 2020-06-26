@@ -30,7 +30,7 @@ public class Application extends HttpServlet {
             final ResultSet resultSet = stmt.executeQuery("SELECT * FROM Personnes");
             while (resultSet.next()) {
                 writer.println("PersonneID: " + resultSet.getInt("PersonneID"));
-                writer.println("Prénom: " + resultSet.getString("Prénom"));
+                writer.println("Prenom: " + resultSet.getString("Prenom"));
                 writer.println("Nom1: " + resultSet.getString("Nom1"));
                 writer.println("Nom2: " + resultSet.getString("Nom2"));
                 writer.println("Adresse: " + resultSet.getString("Adresse"));
