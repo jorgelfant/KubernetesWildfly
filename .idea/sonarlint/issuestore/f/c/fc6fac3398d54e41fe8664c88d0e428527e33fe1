@@ -1,9 +1,0 @@
-
-m
-java:S1989"PHandle the following exception that could be thrown by "getWriter": IOException.(‰œÜ•8º»Ø²®.
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(›š½é8º»Ø²®.
-t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(““Ğüÿÿÿÿ
-r
-java:S1989 "PHandle the following exception that could be thrown by "sendError": IOException.(„ş™‘ûÿÿÿÿ8º»Ø²®.
-a
-java:S2184"FCast one of the operands of this multiplication operation to a "long".(““Ğüÿÿÿÿ

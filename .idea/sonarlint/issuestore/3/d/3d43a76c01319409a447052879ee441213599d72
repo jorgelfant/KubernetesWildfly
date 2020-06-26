@@ -1,17 +1,0 @@
-
-r
-java:S1989*"PHandle the following exception that could be thrown by "sendError": IOException.(„þ™‘ûÿÿÿÿ8é»Ø²®.
-r
-java:S1989'"PHandle the following exception that could be thrown by "sendError": IOException.(„þ™‘ûÿÿÿÿ8é»Ø²®.
-b
-java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(üÏ®Áûÿÿÿÿ
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(›š½é8é»Ø²®.
-_
-java:S2147)"DCombine this catch with the one at line 38, which has the same body.(‰Ü³ˆÿÿÿÿÿ
-N	java:S106 "9Replace this use of System.out or System.err by a logger.(ùàèü
-m
-java:S1989"PHandle the following exception that could be thrown by "getWriter": IOException.(‰œÜ•8é»Ø²®.
-b
-java:S2095"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(Åøƒ£ÿÿÿÿÿ
-S	java:S106("9Replace this use of System.out or System.err by a logger.(½ÞÆ€þÿÿÿÿ
-S	java:S106+"9Replace this use of System.out or System.err by a logger.(½ÞÆ€þÿÿÿÿ

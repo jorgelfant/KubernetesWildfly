@@ -35,7 +35,7 @@ public class Aplication extends HttpServlet {
                 writer.println("Nom2: " + resultSet.getString("Nom2"));
                 writer.println("Adresse: " + resultSet.getString("Adresse"));
                 writer.println("Population: " + resultSet.getString("Population"));
-                writer.println("-------------------------------------------------");
+                writer.println("--------------------------------------------------");
             }
             stmt.close();
             connection.close();
