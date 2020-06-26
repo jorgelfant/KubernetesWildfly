@@ -5,7 +5,7 @@ WORKDIR /tmp/
 RUN mvn package
 
 FROM jboss/wildfly:latest
-ADD --from=MAVEN_TOOL_CHAIN /tmp/target/Kubernetes*.war /opt/jboss/wildfly/standalone/deployments/
+COPY --from=MAVEN_TOOL_CHAIN /tmp/target/Kubernetes*.war /opt/jboss/wildfly/standalone/deployments/
 
 WORKDIR /
 
