@@ -1,4 +1,4 @@
-package org.example.kubernetesWildfly;
+package com.example.kubernetesWildfly.aplicacion;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,7 +17,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet({ "/readynessProbe" })
 public class ReadynessProbe extends HttpServlet {
 
+    /**
+     * 
+     */
     private static final long serialVersionUID = 8532332299687592651L;
+
+
 
     @Override
     protected void doGet(final HttpServletRequest request, final HttpServletResponse response)
@@ -27,7 +32,7 @@ public class ReadynessProbe extends HttpServlet {
         try {
             final Connection connection = this.connectDatabase();
             final Statement stmt = connection.createStatement();
-            final ResultSet resultSet = stmt.executeQuery("SELECT * FROM Personnes");
+            final ResultSet resultSet = stmt.executeQuery("SELECT * FROM Personas");
             if (resultSet.next()) {
                 System.out.println("OK");
                 writer.println("OK");
@@ -37,10 +42,10 @@ public class ReadynessProbe extends HttpServlet {
 
         } catch (final ClassNotFoundException e) {
             response.sendError(500);
-            System.out.println("Non OK");
+            System.out.println("No OK");
         } catch (final SQLException e) {
             response.sendError(500);
-            System.out.println("Non OK");
+            System.out.println("No OK");
         }
 
         writer.flush();
@@ -48,7 +53,7 @@ public class ReadynessProbe extends HttpServlet {
 
     private Connection connectDatabase() throws ClassNotFoundException, SQLException {
         Class.forName("org.mariadb.jdbc.Driver");
-        return DriverManager.getConnection("jdbc:mysql://mariadb-service:3306/cours", "root", "admin123");
+        return DriverManager.getConnection("jdbc:mysql://mariadb-service:3306/curso", "root", "admin123");
     }
 
 }
