@@ -42,7 +42,7 @@ public class ReadynessProbe extends HttpServlet {
 
         } catch (final ClassNotFoundException e) {
             response.sendError(500);
-            System.out.println("Non OK");
+            System.out.println("Non OKK");
         } catch (final SQLException e) {
             response.sendError(500);
             System.out.println("Non OK");

@@ -18,9 +18,7 @@ public class LivenessProbe extends HttpServlet {
      * 
      */
     private static final long serialVersionUID = 8532332299687592651L;
-
     private static final Date demmarrage = new Date();
-
     private static final long attente = 5 * 60 * 1000;
 
     @Override
