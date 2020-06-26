@@ -2,6 +2,6 @@
 
 <module xmlns="urn:jboss:module:1.1" name="org.mariadb.jdbc">
     <resources>
-		<resource-root path="mariadb-java-client-1.5.9.jar"/>
+		<resource-root path="mariadb-java-client-2.6.1.jar"/>
 	</resources>
 </module>

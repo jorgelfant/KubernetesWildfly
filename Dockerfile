@@ -5,11 +5,11 @@ WORKDIR /tmp/
 RUN mvn package
 
 FROM jboss/wildfly:latest
-COPY --from=MAVEN_TOOL_CHAIN /tmp/target/Kubernetes*.war /opt/jboss/wildfly/standalone/deployments/
+ADD --from=MAVEN_TOOL_CHAIN /tmp/target/Kubernetes*.war /opt/jboss/wildfly/standalone/deployments/
 
 WORKDIR /
 
-ADD https://downloads.mariadb.com/Connectors/java/connector-java-1.5.9/mariadb-java-client-1.5.9.jar /opt/jboss/wildfly/modules/system/layers/base/org/mariadb/jdbc/main/
+ADD https://downloads.mariadb.com/Connectors/java/connector-java-2.6.1/mariadb-java-client-2.6.1.jar /opt/jboss/wildfly/modules/system/layers/base/org/mariadb/jdbc/main/
 COPY librairies/module.xml /opt/jboss/wildfly/modules/system/layers/base/org/mariadb/jdbc/main/
 
 RUN /opt/jboss/wildfly/bin/add-user.sh admin Admin#123 --silent
